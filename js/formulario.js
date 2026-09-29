@@ -62,23 +62,45 @@ export function configurarFormulario() {
     const feedback =
         document.getElementById("feedback-formulario");
 
+    if (!formulario || !nome || !erroNome || !feedback) {
+        return;
+    }
+
     nome.addEventListener("input", function () {
         const nomeDigitado = nome.value.trim();
 
         if (nomeDigitado.length === 0) {
             nome.style.borderColor = "orange";
+
+            nome.setAttribute(
+                "aria-invalid",
+                "true"
+            );
+
             erroNome.textContent =
                 "O nome é obrigatório.";
         }
 
         else if (nomeDigitado.length < 3) {
             nome.style.borderColor = "orange";
+
+            nome.setAttribute(
+                "aria-invalid",
+                "true"
+            );
+
             erroNome.textContent =
                 "O nome deve possuir pelo menos 3 caracteres.";
         }
 
         else {
             nome.style.borderColor = "green";
+
+            nome.setAttribute(
+                "aria-invalid",
+                "false"
+            );
+
             erroNome.textContent = "";
         }
     });
@@ -134,6 +156,12 @@ export function configurarFormulario() {
             formulario.reset();
 
             nome.style.borderColor = "";
+
+            nome.setAttribute(
+                "aria-invalid",
+                "false"
+            );
+
             erroNome.textContent = "";
 
             exibirCadastros();

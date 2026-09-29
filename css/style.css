@@ -539,3 +539,77 @@ footer {
 *::after {
     box-sizing: border-box;
 }
+/* =========================
+   ACESSIBILIDADE - WCAG 2.1 AA
+   ========================= */
+
+/* Link para pular diretamente ao conteúdo principal */
+.link-pular {
+    position: absolute;
+    top: -100px;
+    left: var(--espaco-sm);
+    z-index: 2000;
+
+    padding: var(--espaco-sm);
+
+    background-color: var(--cor-primaria-escura);
+    color: #FFFFFF;
+
+    font-weight: 600;
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+/* O link aparece quando recebe foco pelo teclado */
+.link-pular:focus {
+    top: var(--espaco-sm);
+
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 3px;
+}
+
+/* Foco visível para links da navegação */
+.menu-principal a:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Identificação visual da página atual */
+.menu-principal a[aria-current="page"] {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
+/* Foco visível para o controle do menu mobile */
+.menu-toggle:focus-visible + .menu-hamburguer {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Foco programático no conteúdo dinâmico */
+#app:focus {
+    outline: none;
+}
+
+/* Reforça a legibilidade dos textos */
+body {
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    line-height: 1.6;
+}
+
+/* Respeita usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
