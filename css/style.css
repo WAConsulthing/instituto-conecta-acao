@@ -1,0 +1,541 @@
+:root {
+    /* Cores principais */
+    --cor-primaria: #176B5B;
+    --cor-primaria-escura: #0F4C40;
+    --cor-secundaria: #F2B544;
+    --cor-secundaria-clara: #FFD978;
+
+    /* Cores de apoio e neutras */
+    --cor-destaque: #D95D39;
+    --cor-fundo: #F7F9F8;
+    --cor-superficie: #FFFFFF;
+    --cor-texto: #26332F;
+    --cor-texto-suave: #5F6F69;
+    --cor-borda: #D9E2DF;
+
+    /* Escala tipográfica */
+    --fonte-xs: 0.875rem;
+    --fonte-sm: 1rem;
+    --fonte-md: 1.25rem;
+    --fonte-lg: 1.75rem;
+    --fonte-xl: 2.5rem;
+
+    /* Escala de espaçamentos */
+    --espaco-xs: 0.5rem;
+    --espaco-sm: 1rem;
+    --espaco-md: 1.5rem;
+    --espaco-lg: 2rem;
+    --espaco-xl: 3rem;
+}
+
+/* =========================
+   GRID DE 12 COLUNAS
+   ========================= */
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--espaco-sm);
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-md);
+}
+
+.container > * {
+    grid-column: span 12;
+}
+
+/* =========================
+   COMPONENTES COM FLEXBOX
+   ========================= */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--espaco-md);
+    padding: var(--espaco-md);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--espaco-md);
+    flex-wrap: wrap;
+}
+
+/* Cards dos projetos */
+article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-sm);
+
+    padding: var(--espaco-md);
+    margin-bottom: var(--espaco-md);
+
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Interação dos cards */
+article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+}
+
+address {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-xs);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--espaco-md);
+}
+
+/* =========================
+   NAVEGAÇÃO RESPONSIVA
+   ========================= */
+
+.navegacao {
+    position: relative;
+}
+
+.menu-principal {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-md);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-principal a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    padding: var(--espaco-xs) var(--espaco-sm);
+}
+
+/* Submenu */
+.tem-submenu {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+
+    list-style: none;
+    margin: 0;
+    padding: var(--espaco-xs);
+
+    background-color: var(--cor-superficie);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+/* Exibe o submenu com mouse ou teclado */
+.tem-submenu:hover .submenu,
+.tem-submenu:focus-within .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Checkbox utilizado para controlar o menu mobile */
+.menu-toggle {
+    display: none;
+}
+
+/* Ícone hambúrguer */
+.menu-hamburguer {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-hamburguer span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--cor-texto);
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+/* =========================
+   FORMULÁRIOS E BOTÕES
+   ========================= */
+
+.formulario-cadastro {
+    max-width: 700px;
+    margin: var(--espaco-lg) auto;
+}
+
+.formulario-cadastro fieldset {
+    border: 1px solid var(--cor-borda);
+    padding: var(--espaco-md);
+    margin-bottom: var(--espaco-md);
+    background-color: var(--cor-superficie);
+}
+
+.formulario-cadastro label {
+    display: block;
+    margin-top: var(--espaco-sm);
+    margin-bottom: var(--espaco-xs);
+    color: var(--cor-texto);
+}
+
+.formulario-cadastro input,
+.formulario-cadastro select,
+.formulario-cadastro textarea {
+    width: 100%;
+    padding: var(--espaco-sm);
+    border: 2px solid var(--cor-borda);
+    border-radius: 6px;
+    font-size: var(--fonte-sm);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+/* Campo em foco */
+.formulario-cadastro input:focus,
+.formulario-cadastro select:focus,
+.formulario-cadastro textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(23, 107, 91, 0.20);
+}
+
+/* Campo preenchido corretamente */
+.formulario-cadastro input:valid:not(:placeholder-shown) {
+    border-color: var(--cor-primaria);
+    background-color: #F0F8F5;
+}
+
+/* Campo com preenchimento inválido */
+.formulario-cadastro input:invalid:not(:placeholder-shown) {
+    border-color: var(--cor-destaque);
+    background-color: #FFF4F1;
+}
+
+/* Área dos botões */
+.acoes-formulario {
+    display: flex;
+    gap: var(--espaco-sm);
+    flex-wrap: wrap;
+}
+
+/* Estado padrão */
+.botao {
+    display: inline-block;
+    width: fit-content;
+
+    padding: var(--espaco-sm) var(--espaco-md);
+
+    border: 2px solid var(--cor-primaria);
+    border-radius: 6px;
+
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
+
+    font-size: var(--fonte-sm);
+    font-family: inherit;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease,
+        border-color 0.3s ease;
+}
+
+/* Hover */
+.botao:hover:not(:disabled) {
+    background-color: var(--cor-primaria-escura);
+    border-color: var(--cor-primaria-escura);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+/* Focus */
+.botao:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 3px;
+}
+
+/* Active */
+.botao:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.20);
+}
+
+/* Disabled */
+.botao:disabled {
+    background-color: var(--cor-borda);
+    border-color: var(--cor-borda);
+    color: var(--cor-texto-suave);
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+/* =========================
+   COMPONENTES DE FEEDBACK
+   ========================= */
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+
+    font-size: var(--fonte-xs);
+    font-weight: 600;
+}
+
+.badge-ativo {
+    color: var(--cor-primaria-escura);
+    background-color: #DDEFEA;
+}
+
+.badge-voluntarios {
+    color: #6B4A00;
+    background-color: var(--cor-secundaria-clara);
+}
+
+/* Alertas */
+.alerta {
+    margin: var(--espaco-md) 0;
+    padding: var(--espaco-md);
+
+    border-radius: 8px;
+    border-left: 5px solid;
+
+    font-size: var(--fonte-sm);
+}
+
+.alerta-info {
+    color: var(--cor-primaria-escura);
+    background-color: #E8F4F1;
+    border-color: var(--cor-primaria);
+}
+
+/* =========================
+   MODAL FUNCIONAL
+   ========================= */
+
+.demonstracao-modal {
+    margin-top: var(--espaco-lg);
+}
+
+/* Checkbox que controla abertura e fechamento */
+.modal-toggle {
+    display: none;
+}
+
+/* Fundo do modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: var(--espaco-md);
+
+    background-color: rgba(38, 51, 47, 0.65);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+/* Abre o modal quando o checkbox está marcado */
+.modal-toggle:checked ~ .modal-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Caixa interna do modal */
+.modal-conteudo {
+    width: 100%;
+    max-width: 500px;
+
+    padding: var(--espaco-lg);
+
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+/* Animação de entrada */
+.modal-toggle:checked ~ .modal-overlay .modal-conteudo {
+    transform: translateY(0);
+}
+
+.modal-conteudo h3 {
+    margin-top: var(--espaco-sm);
+    color: var(--cor-texto);
+}
+
+.modal-conteudo p {
+    color: var(--cor-texto-suave);
+    line-height: 1.6;
+}
+
+/* =========================
+   BREAKPOINTS RESPONSIVOS
+   ========================= */
+
+/* 1 - Celulares pequenos */
+@media (max-width: 479px) {
+    .container {
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--espaco-xs);
+        padding: 0 var(--espaco-xs);
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-hamburguer {
+        display: block;
+    }
+
+    .menu-principal {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--espaco-xs);
+    }
+
+    .menu-toggle:checked ~ .menu-principal {
+        display: flex;
+    }
+
+    .submenu {
+        position: static;
+        min-width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: block;
+    }
+
+    .menu-toggle:checked + .menu-hamburguer span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle:checked + .menu-hamburguer span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked + .menu-hamburguer span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* 2 - Celulares */
+@media (min-width: 480px) and (max-width: 767px) {
+    .container {
+        gap: var(--espaco-sm);
+    }
+}
+
+/* 3 - Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 0 var(--espaco-md);
+    }
+
+    .col-tablet-6 {
+        grid-column: span 6;
+    }
+}
+
+/* 4 - Desktops */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .container {
+        padding: 0 var(--espaco-lg);
+    }
+
+    .col-desktop-4 {
+        grid-column: span 4;
+    }
+
+    .col-desktop-6 {
+        grid-column: span 6;
+    }
+}
+
+/* 5 - Desktops panorâmicos */
+@media (min-width: 1440px) {
+    .container {
+        padding: 0 var(--espaco-xl);
+    }
+
+    .col-wide-3 {
+        grid-column: span 3;
+    }
+
+    .col-wide-4 {
+        grid-column: span 4;
+    }
+}
+
+/* Configuração global */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
