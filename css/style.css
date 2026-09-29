@@ -613,3 +613,113 @@ body {
         animation-iteration-count: 1 !important;
     }
 }
+
+/* =========================
+   MODO DE ALTO CONTRASTE
+   ========================= */
+
+.botao-contraste {
+    padding: 0.65rem 1rem;
+    border: 2px solid var(--cor-primaria-escura);
+    border-radius: 6px;
+    background-color: var(--cor-superficie);
+    color: var(--cor-primaria-escura);
+    font-family: inherit;
+    font-size: var(--fonte-xs);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.botao-contraste:hover {
+    background-color: var(--cor-primaria-escura);
+    color: #FFFFFF;
+}
+
+.botao-contraste:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 3px;
+}
+
+/* Alto contraste ativado */
+
+body.alto-contraste {
+    background-color: #000000;
+    color: #FFFFFF;
+
+    --cor-fundo: #000000;
+    --cor-superficie: #000000;
+    --cor-texto: #FFFFFF;
+    --cor-texto-suave: #FFFFFF;
+    --cor-borda: #FFFFFF;
+}
+
+body.alto-contraste header,
+body.alto-contraste footer,
+body.alto-contraste article,
+body.alto-contraste fieldset {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste h4,
+body.alto-contraste p,
+body.alto-contraste label,
+body.alto-contraste legend,
+body.alto-contraste strong {
+    color: #FFFFFF;
+}
+
+body.alto-contraste .menu-principal a {
+    color: #FFFF00;
+}
+
+body.alto-contraste .menu-principal a[aria-current="page"] {
+    color: #00FFFF;
+}
+
+body.alto-contraste .formulario-cadastro input,
+body.alto-contraste .formulario-cadastro select,
+body.alto-contraste .formulario-cadastro textarea {
+    background-color: #000000;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+body.alto-contraste .formulario-cadastro input::placeholder,
+body.alto-contraste .formulario-cadastro textarea::placeholder {
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+body.alto-contraste .botao {
+    background-color: #FFFF00;
+    border-color: #FFFF00;
+    color: #000000;
+}
+
+body.alto-contraste .botao-contraste {
+    background-color: #000000;
+    border-color: #FFFF00;
+    color: #FFFF00;
+}
+
+body.alto-contraste .botao:focus-visible,
+body.alto-contraste .botao-contraste:focus-visible,
+body.alto-contraste .menu-principal a:focus-visible {
+    outline: 3px solid #00FFFF;
+    outline-offset: 3px;
+}
+
+body.alto-contraste .badge {
+    background-color: #FFFF00;
+    color: #000000;
+    border: 2px solid #FFFFFF;
+}
+
+body.alto-contraste .link-pular {
+    background-color: #FFFF00;
+    color: #000000;
+}
