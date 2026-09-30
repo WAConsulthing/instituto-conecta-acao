@@ -12,7 +12,7 @@ export default defineConfig({
             input: {
                 main: resolve(
                     import.meta.dirname,
-                    "html/index.html"
+                    "index.html"
                 )
             }
         }
