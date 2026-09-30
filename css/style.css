@@ -723,3 +723,13 @@ body.alto-contraste .link-pular {
     background-color: #FFFF00;
     color: #000000;
 }
+
+/* =========================
+   IMAGENS RESPONSIVAS
+   ========================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}

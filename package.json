@@ -1,0 +1,32 @@
+{
+  "name": "instituto-conecta-acao",
+  "version": "1.0.0",
+  "description": "Aplicação web do Instituto Conecta Ação desenvolvida como projeto acadêmico de Desenvolvimento Front-End.",
+  "main": "html/index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WAConsulthing/instituto-conecta-acao.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "acessibilidade",
+    "vite"
+  ],
+  "author": "Ayanna Galvão",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/WAConsulthing/instituto-conecta-acao/issues"
+  },
+  "homepage": "https://github.com/WAConsulthing/instituto-conecta-acao#readme",
+  "devDependencies": {
+    "vite": "^8.3.1"
+  }
+}

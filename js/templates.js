@@ -13,6 +13,7 @@ function gerarProjetos() {
         </article>
     `).join("");
 }
+import imagemAcaoSocial from "../imagens/acao-social-conecta.webp";
 
 export const paginas = {
 
@@ -22,7 +23,7 @@ export const paginas = {
             <h2>Quem Somos</h2>
 
             <img
-                src="../imagens/acao-social-conecta.png"
+                src="${imagemAcaoSocial}"
                 alt="Voluntários do Instituto Conecta Ação realizando a entrega de alimentos durante uma ação social"
             >
 
