@@ -13,6 +13,7 @@ function gerarProjetos() {
         </article>
     `).join("");
 }
+import imagemAcaoSocial from "../imagens/acao-social-conecta.webp";
 
 export const paginas = {
 
@@ -22,7 +23,7 @@ export const paginas = {
             <h2>Quem Somos</h2>
 
             <img
-                src="../imagens/acao-social-conecta.png"
+                src="${imagemAcaoSocial}"
                 alt="Voluntários do Instituto Conecta Ação realizando a entrega de alimentos durante uma ação social"
             >
 
@@ -70,7 +71,9 @@ export const paginas = {
                 <fieldset>
                     <legend>Dados pessoais</legend>
 
-                    <label for="nome">Nome completo</label>
+                    <label for="nome">
+                        Nome completo
+                    </label>
 
                     <input
                         type="text"
@@ -78,12 +81,19 @@ export const paginas = {
                         name="nome"
                         minlength="3"
                         placeholder="Digite seu nome completo"
+                        aria-describedby="erro-nome"
+                        aria-invalid="false"
                         required
                     >
 
-                    <small id="erro-nome"></small>
+                    <small
+                        id="erro-nome"
+                        aria-live="polite"
+                    ></small>
 
-                    <label for="email">E-mail</label>
+                    <label for="email">
+                        E-mail
+                    </label>
 
                     <input
                         type="email"
@@ -93,7 +103,9 @@ export const paginas = {
                         required
                     >
 
-                    <label for="telefone">Telefone</label>
+                    <label for="telefone">
+                        Telefone
+                    </label>
 
                     <input
                         type="tel"
@@ -107,7 +119,9 @@ export const paginas = {
                 </fieldset>
 
                 <fieldset>
-                    <legend>Como deseja participar?</legend>
+                    <legend>
+                        Como deseja participar?
+                    </legend>
 
                     <label for="participacao">
                         Forma de participação
@@ -131,7 +145,9 @@ export const paginas = {
                         </option>
                     </select>
 
-                    <label for="mensagem">Mensagem</label>
+                    <label for="mensagem">
+                        Mensagem
+                    </label>
 
                     <textarea
                         id="mensagem"
@@ -141,16 +157,29 @@ export const paginas = {
                     ></textarea>
                 </fieldset>
 
-                <button type="submit" class="botao">
+                <button
+                    type="submit"
+                    class="botao"
+                >
                     Enviar cadastro
                 </button>
 
-                <p id="feedback-formulario"></p>
+                <p
+                    id="feedback-formulario"
+                    role="status"
+                    aria-live="polite"
+                ></p>
 
             </form>
 
-            <section id="historico-cadastros">
-                <h3>Cadastros realizados</h3>
+            <section
+                id="historico-cadastros"
+                aria-labelledby="titulo-historico"
+            >
+                <h3 id="titulo-historico">
+                    Cadastros realizados
+                </h3>
+
                 <div id="lista-cadastros"></div>
             </section>
 

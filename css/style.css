@@ -539,3 +539,197 @@ footer {
 *::after {
     box-sizing: border-box;
 }
+/* =========================
+   ACESSIBILIDADE - WCAG 2.1 AA
+   ========================= */
+
+/* Link para pular diretamente ao conteúdo principal */
+.link-pular {
+    position: absolute;
+    top: -100px;
+    left: var(--espaco-sm);
+    z-index: 2000;
+
+    padding: var(--espaco-sm);
+
+    background-color: var(--cor-primaria-escura);
+    color: #FFFFFF;
+
+    font-weight: 600;
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+/* O link aparece quando recebe foco pelo teclado */
+.link-pular:focus {
+    top: var(--espaco-sm);
+
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 3px;
+}
+
+/* Foco visível para links da navegação */
+.menu-principal a:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Identificação visual da página atual */
+.menu-principal a[aria-current="page"] {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
+/* Foco visível para o controle do menu mobile */
+.menu-toggle:focus-visible + .menu-hamburguer {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Foco programático no conteúdo dinâmico */
+#app:focus {
+    outline: none;
+}
+
+/* Reforça a legibilidade dos textos */
+body {
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    line-height: 1.6;
+}
+
+/* Respeita usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* =========================
+   MODO DE ALTO CONTRASTE
+   ========================= */
+
+.botao-contraste {
+    padding: 0.65rem 1rem;
+    border: 2px solid var(--cor-primaria-escura);
+    border-radius: 6px;
+    background-color: var(--cor-superficie);
+    color: var(--cor-primaria-escura);
+    font-family: inherit;
+    font-size: var(--fonte-xs);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.botao-contraste:hover {
+    background-color: var(--cor-primaria-escura);
+    color: #FFFFFF;
+}
+
+.botao-contraste:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 3px;
+}
+
+/* Alto contraste ativado */
+
+body.alto-contraste {
+    background-color: #000000;
+    color: #FFFFFF;
+
+    --cor-fundo: #000000;
+    --cor-superficie: #000000;
+    --cor-texto: #FFFFFF;
+    --cor-texto-suave: #FFFFFF;
+    --cor-borda: #FFFFFF;
+}
+
+body.alto-contraste header,
+body.alto-contraste footer,
+body.alto-contraste article,
+body.alto-contraste fieldset {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste h4,
+body.alto-contraste p,
+body.alto-contraste label,
+body.alto-contraste legend,
+body.alto-contraste strong {
+    color: #FFFFFF;
+}
+
+body.alto-contraste .menu-principal a {
+    color: #FFFF00;
+}
+
+body.alto-contraste .menu-principal a[aria-current="page"] {
+    color: #00FFFF;
+}
+
+body.alto-contraste .formulario-cadastro input,
+body.alto-contraste .formulario-cadastro select,
+body.alto-contraste .formulario-cadastro textarea {
+    background-color: #000000;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+body.alto-contraste .formulario-cadastro input::placeholder,
+body.alto-contraste .formulario-cadastro textarea::placeholder {
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+body.alto-contraste .botao {
+    background-color: #FFFF00;
+    border-color: #FFFF00;
+    color: #000000;
+}
+
+body.alto-contraste .botao-contraste {
+    background-color: #000000;
+    border-color: #FFFF00;
+    color: #FFFF00;
+}
+
+body.alto-contraste .botao:focus-visible,
+body.alto-contraste .botao-contraste:focus-visible,
+body.alto-contraste .menu-principal a:focus-visible {
+    outline: 3px solid #00FFFF;
+    outline-offset: 3px;
+}
+
+body.alto-contraste .badge {
+    background-color: #FFFF00;
+    color: #000000;
+    border: 2px solid #FFFFFF;
+}
+
+body.alto-contraste .link-pular {
+    background-color: #FFFF00;
+    color: #000000;
+}
+
+/* =========================
+   IMAGENS RESPONSIVAS
+   ========================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}

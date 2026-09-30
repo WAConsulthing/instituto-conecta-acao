@@ -10,47 +10,75 @@
 
 <body>
 
+<a href="#conteudo-principal" class="link-pular">
+    Pular para o conteúdo principal
+</a>
+
 <header>
     <h1>Instituto Conecta Ação</h1>
 
-    <nav class="navegacao">
+    <nav class="navegacao" aria-label="Navegação principal">
 
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="Abrir ou fechar menu de navegação"
+        >
 
         <label for="menu-toggle" class="menu-hamburguer">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
         </label>
 
         <ul class="menu-principal">
             <li>
-                <a href="#" data-page="inicio">Início</a>
+                <a href="#" data-page="inicio" aria-current="page">
+                    Início
+                </a>
             </li>
 
             <li>
-                <a href="#" data-page="projetos">Projetos</a>
+                <a href="#" data-page="projetos">
+                    Projetos
+                </a>
             </li>
 
             <li>
-                <a href="#" data-page="cadastro">Cadastre-se</a>
+                <a href="#" data-page="cadastro">
+                    Cadastre-se
+                </a>
             </li>
         </ul>
+
+        <button
+            type="button"
+            id="botao-contraste"
+            class="botao-contraste"
+            aria-pressed="false"
+        >
+            Alto contraste
+        </button>
 
     </nav>
 </header>
 
-<main class="container">
-
-    <div id="app"></div>
-
+<main
+    class="container"
+    id="conteudo-principal"
+>
+    <div
+        id="app"
+        tabindex="-1"
+    ></div>
 </main>
 
 <footer>
     <p>&copy; 2026 Instituto Conecta Ação</p>
 </footer>
 
-<<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 <script type="module" src="../js/app.js"></script>
 
 </body>
